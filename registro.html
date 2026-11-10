@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card shadow-sm">
+            <div class="card-header bg-primary text-white">
+                <h4 class="mb-0">Registrar Nuevo Libro</h4>
+            </div>
+            <div class="card-body">
+                <form action="{{ url_for('registro') }}" method="POST" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="titulo" class="form-label">Título del Libro</label>
+                        <input type="text" class="form-control" id="titulo" name="titulo" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="autor" class="form-label">Autor</label>
+                        <input type="text" class="form-control" id="autor" name="autor" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="fecha_publicacion" class="form-label">Fecha de Publicación</label>
+                        <input type="date" class="form-control" id="fecha_publicacion" name="fecha_publicacion" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="imagen" class="form-label">Imagen de Portada</label>
+                        <input type="file" class="form-control" id="imagen" name="imagen" accept="image/*" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Guardar Libro</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

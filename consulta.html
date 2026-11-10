@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2 class="mb-4">Catálogo de Libros</h2>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    {% for libro in libros %}
+    <div class="col">
+        <div class="card h-100 shadow-sm">
+            <img src="data:image/jpeg;base64,{{ libro.imagen_b64 }}" class="card-img-top" alt="Portada de {{ libro.titulo }}" style="height: 300px; object-fit: cover;">
+            <div class="card-body">
+                <h5 class="card-title">{{ libro.titulo }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{ libro.autor }}</h6>
+                <p class="card-text"><strong>Publicado:</strong> {{ libro.fecha_publicacion }}</p>
+                <p class="card-text text-muted small">ID: {{ libro.id }}</p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
